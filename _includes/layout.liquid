@@ -7,16 +7,25 @@ title: 11ty Boilerplate
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="/styles/screen.css">
+    <script defer src="https://cdn.jsdelivr.net/gh/hankhank10/alpine-fetch@main/alpine-fetch.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="About the boilerplate">About</a></li>
-    </ul>
-  </nav>
-    {{ content }}
+<body class="bg-green-100 p-4>
+    <h1 class="text-center font-bold text-black font-arial">Products</h1>
+    <div class="flex justify-center items-center h-screen">
+        <div x-data="{products: $fetchjson('https://dummyjson.com/products/14', jsonItem = 'thumbnail')}">
+                <div class="flex items-center mb-4">
+                    <img alt="product" x-bind:src="products" class="rounded-lg shadow-md max-w-sm h-auto mr-4"/>
+                </div>
+            </div>
+        
+
+        <div x-data="{products: $fetchjson('https://dummyjson.com/products/8', jsonItem = 'thumbnail')}">
+            <div class="flex items-center mb-4">
+                <img alt="product" x-bind:src="products" class="rounded-lg shadow-md max-w-sm h-auto mr-4"/>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
